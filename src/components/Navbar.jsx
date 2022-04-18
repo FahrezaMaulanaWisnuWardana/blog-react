@@ -1,13 +1,18 @@
-import { useState } from 'react'
+import {useEffect, useState } from 'react'
 // Component
 import { Switch } from '@headlessui/react'
 const Navbar = () => {
-    const [enabled, setEnabled] = useState(false)
-    if(enabled===true){
-        document.querySelector('html').classList.add('dark')
-        document.querySelector('body').classList.add('bg-slate-50','dark:bg-zinc-900')
+    const [enabled, setEnabled] = useState(localStorage.getItem("theme") === "dark" ? true : false)
+    useEffect(() => {
+      document.getElementsByTagName("HTML")[0].setAttribute('class', localStorage.getItem('theme'));
+      document.getElementsByTagName("body")[0].setAttribute('class', 'bg-white dark:bg-black');
+    },[])
+    if(enabled === true){
+      localStorage.setItem("theme", "dark")
+      document.getElementsByTagName("HTML")[0].setAttribute('class', localStorage.getItem('theme'))
     }else{
-        document.querySelector('html').classList.remove('dark')
+      localStorage.setItem("theme", "light")
+      document.getElementsByTagName("HTML")[0].setAttribute('class', localStorage.getItem('theme'))
     }
     return(
         <div className="py-16">
