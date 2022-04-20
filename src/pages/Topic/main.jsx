@@ -1,6 +1,5 @@
 import {
   useQuery,
-  useMutation,
   useQueryClient
 } from 'react-query'
 import axios from 'axios'
@@ -9,7 +8,7 @@ import { Link } from 'react-router-dom'
 const topic = () =>{
     const queryClient = useQueryClient()
     const dataTopic = async () => {
-        let res = await axios.get(`https://6023-2001-448a-5122-3fdb-94a1-f799-294-6cfd.ngrok.io/api/v1/topics`)
+        let res = await axios.get(`http://127.0.0.1:8080/api/v1/topics`)
         return res.data
     }
     const {data,status} = useQuery('topics',dataTopic)

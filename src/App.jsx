@@ -19,7 +19,7 @@ const queryClient = new QueryClient()
 
 function App() {
   return (
-      <div className='w-1/2 mx-auto md:w-full'>
+      <div className='mx-auto w-full md:w-1/2 '>
       <Navbar />
         <QueryClientProvider client={queryClient}>
           <Routes>

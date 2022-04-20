@@ -9,7 +9,7 @@ import { useParams } from 'react-router-dom'
 const detailTopic = () => {
     let {id} = useParams()
     const dataTopic = async () => {
-        const res = await axios.get(`https://6023-2001-448a-5122-3fdb-94a1-f799-294-6cfd.ngrok.io/api/v1/topics/${id}`)
+        const res = await axios.get(`http://127.0.0.1:8080/api/v1/topics/${id}`)
         return res.data
     }
     const {data,status} = useQuery('topic',dataTopic)
